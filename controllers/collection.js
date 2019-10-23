@@ -5,18 +5,18 @@ module.exports = (db) => {
 ╚═╝┴ ┴┴─┘┴─┘└─┘┴ ┴└─┘┴ ┴└─┘
 */
     let newControllerCallback = (req,res) => {
-        res.render('liquor/new');
+        res.render('collection/new');
     };
 
     let createControllerCallback = (req,res) => {
-        db.liquor.create(req,(err,result)=>{
-            res.render('liquor/show',result);
+        db.collection.create(req,(err,result)=>{
+            res.render('collection/show',result);
         });
     };
 
     let indexControllerCallback = (req,res) => {
-        db.liquor.index(req,(err,result)=>{
-            res.send(result);
+        db.collection.selectAll(req,(err,result)=>{
+            res.render('collection/index',{result});
         });
     };
 /*

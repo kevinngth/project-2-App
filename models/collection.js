@@ -4,9 +4,9 @@ module.exports = (pool) => {
 ║║║├┤  │ ├─┤│ │ ││└─┐
 ╩ ╩└─┘ ┴ ┴ ┴└─┘─┴┘└─┘
 */
-    let createNewLiqour = (req,callback) => {
-        let values = [req.body.name,req.body.type];
-        let query = `INSERT INTO liquor (name,type) VALUES ($1,$2) RETURNING *`;
+    let create = (req,callback) => {
+        let values = [req.body.user_id,req.body.liquor_id,req.body.date_bought,req.body.quantity];
+        let query = `INSERT INTO collection (user_id,liquor_id,date_bought,quantity) VALUES ($1,$2,$3,$4) RETURNING *`;
         pool.query(query,values,(err,res)=>{
             if (err) {
                 callback(err,null)
@@ -20,8 +20,8 @@ module.exports = (pool) => {
         });
     };
 
-    let index = (req,callback) => {
-        let query = 'SELECT * FROM liquor';
+    let selectAll = (req,callback) => {
+        let query = 'SELECT * FROM collection';
         pool.query(query,(err,res)=>{
             if (err) {
                 callback(err,null)
@@ -40,7 +40,7 @@ module.exports = (pool) => {
 ╚═╝┴ └─┴  └─┘┴└─ ┴
 */
     return {
-        create: createNewLiqour,
-        index
+        create,
+        selectAll
     };
 };

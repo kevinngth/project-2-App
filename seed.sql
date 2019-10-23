@@ -1,0 +1,1 @@
+INSERT INTO liquor (name,type) VALUES ('bacardi','rum');

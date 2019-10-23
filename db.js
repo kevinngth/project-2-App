@@ -44,6 +44,9 @@ pool.on('error', function (err) {
 */
 const liquorModels = require('./models/liquor');
 const liquorObject = liquorModels(pool);
+
+const collectionModels = require('./models/collection');
+const collectionObject = collectionModels(pool);
 /*
 ╔═╗─┐ ┬┌─┐┌─┐┬─┐┌┬┐
 ║╣ ┌┴┬┘├─┘│ │├┬┘ │
@@ -54,5 +57,6 @@ module.exports = {
         return pool.query(text, params, callback);
     },
     pool,
-    liquor: liquorObject
+    liquor: liquorObject,
+    collection: collectionObject
 };
