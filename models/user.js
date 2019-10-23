@@ -23,6 +23,24 @@ module.exports = (pool) => {
         });
     };
 
+    let verify = (req,callback) => {
+        let values = [req.body.username,sha256(req.body.password+SALT)];
+        let query = `SELECT * FROM users WHERE username=$1 AND password=$2`;
+        pool.query(query,values,(err,res)=>{
+            if (err) {
+                callback(err,null);
+            } else {
+                if (res.rows.length>0) {
+                    callback(null,res.rows);
+                } else {
+                    callback(null,null);
+                };
+            };
+        });
+    };
+
+
+
     // let selectAll = (req,callback) => {
     //     let query = 'SELECT * FROM collection';
     //     pool.query(query,(err,res)=>{
@@ -93,6 +111,7 @@ module.exports = (pool) => {
 */
     return {
         create,
+        verify
         // selectAll,
         // show,
         // update,

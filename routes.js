@@ -49,4 +49,8 @@ module.exports = (app, allModels) => {
     app.get('/register',userControl.new);
 // post form to create new user
     app.post('/register',userControl.create);
+// login form
+    app.get('/login',userControl.login);
+// login verification
+    app.post('/login',userControl.verify);
 };

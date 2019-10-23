@@ -25,7 +25,22 @@ module.exports = (db) => {
         });
     };
 
+    let loginControllerCallback = (req,res) => {
+        res.render('user/login');
+    };
 
+    let verifyControllerCallback = (req,res) => {
+        db.user.verify(req,(err,result)=>{
+            if (result !== null) {
+                res.cookie('username',result[0].username);
+                res.cookie('loggedIn','yes');
+                res.cookie('userId',result[0].id);
+                res.redirect('/collection/index');
+            } else {
+                res.render('user/wrongLogin');
+            };
+        });
+    };
 /*
 ╔═╗─┐ ┬┌─┐┌─┐┬─┐┌┬┐
 ║╣ ┌┴┬┘├─┘│ │├┬┘ │
@@ -34,5 +49,7 @@ module.exports = (db) => {
     return {
         new: newControllerCallback,
         create: createControllerCallback,
+        login: loginControllerCallback,
+        verify: verifyControllerCallback
     };
 };
