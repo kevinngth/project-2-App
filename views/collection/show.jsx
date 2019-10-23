@@ -4,7 +4,8 @@ const Navbar = require("../navbar");
 
 class Show extends React.Component {
     render() {
-        let {id,user_id,liquor_id,date_bought,quantity} = this.props[0];
+        console.log('OMG WHY DID I COME HERE?');
+        let {id,user_id,liquor_id,date_bought,balance} = this.props[0];
         return (
             <Layout>
                 <Navbar></Navbar>
@@ -13,7 +14,7 @@ class Show extends React.Component {
                     <h6>{user_id}</h6>
                     <h6>{liquor_id}</h6>
                     <h6>{date_bought.toLocaleDateString()}</h6>
-                    <h6>{quantity}</h6>
+                    <h6>{balance}</h6>
                 </div>
             </Layout>
         );

@@ -28,21 +28,12 @@ module.exports = (app, allModels) => {
     app.get('/collection/new',collectionControl.new);
 // post contents from form to db
     app.post('/collection/new',collectionControl.create);
-// get your collections
+// get your collection
     app.get('/collection/index',collectionControl.index);
-/*
-
-*/
-/*
-
-*/
-/*
-
-*/
-/*
-
-*/
-/*
-
-*/
+// get edit form
+    app.get('/collection/:id/edit',collectionControl.edit);
+// update the selected item
+    app.post('/collection/:id',collectionControl.update);
+// read an entry in collection
+    app.get('/collection/:id',collectionControl.show);
 };

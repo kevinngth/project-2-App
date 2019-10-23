@@ -5,8 +5,8 @@ module.exports = (pool) => {
 ╩ ╩└─┘ ┴ ┴ ┴└─┘─┴┘└─┘
 */
     let create = (req,callback) => {
-        let values = [req.body.user_id,req.body.liquor_id,req.body.date_bought,req.body.quantity];
-        let query = `INSERT INTO collection (user_id,liquor_id,date_bought,quantity) VALUES ($1,$2,$3,$4) RETURNING *`;
+        let values = [req.body.user_id,req.body.liquor_id,req.body.date_bought,req.body.balance];
+        let query = `INSERT INTO collection (user_id,liquor_id,date_bought,balance) VALUES ($1,$2,$3,$4) RETURNING *`;
         pool.query(query,values,(err,res)=>{
             if (err) {
                 callback(err,null)
@@ -34,6 +34,39 @@ module.exports = (pool) => {
             };
         });
     };
+
+    let show = (req,callback) => {
+        let values = [req.params.id];
+        let query = 'SELECT * FROM collection WHERE id=$1';
+        pool.query(query,values,(err,res)=>{
+            if (err) {
+                callback(err,null)
+            } else {
+                if (res.rows.length>0) {
+                    callback(null,res.rows);
+                } else {
+                    callback(null,null);
+                };
+            };
+        });
+    };
+
+    let update = (req,callback) => {
+        console.log(req.body.balance,req.params.id)
+        let values = [req.body.balance,req.params.id];
+        let query = 'UPDATE collection SET balance=$1 WHERE id=$2 RETURNING *';
+        pool.query(query,values,(err,res)=>{
+            if (err) {
+                callback(err,null)
+            } else {
+                if (res.rows.length>0) {
+                    callback(null,res.rows);
+                } else {
+                    callback(null,null);
+                };
+            };
+        });
+    };
 /*
 ╔═╗─┐ ┬┌─┐┌─┐┬─┐┌┬┐
 ║╣ ┌┴┬┘├─┘│ │├┬┘ │
@@ -41,6 +74,8 @@ module.exports = (pool) => {
 */
     return {
         create,
-        selectAll
+        selectAll,
+        show,
+        update
     };
 };

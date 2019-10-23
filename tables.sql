@@ -9,7 +9,7 @@ CREATE TABLE "collection" (
 	"user_id" INTEGER,
 	"liquor_id" INTEGER,
 	"date_bought" TIMESTAMPTZ,
-	"quantity" INTEGER
+	"balance" INTEGER
 );
 
 CREATE INDEX "FK" ON  "collection" ("user_id", "liquor_id");
