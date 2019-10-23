@@ -53,4 +53,6 @@ module.exports = (app, allModels) => {
     app.get('/login',userControl.login);
 // login verification
     app.post('/login',userControl.verify);
+// logout
+    app.get('/logout',userControl.logout);
 };

@@ -41,6 +41,13 @@ module.exports = (db) => {
             };
         });
     };
+
+    let logoutControllerCallback = (req,res) => {
+        res.clearCookie('username');
+        res.clearCookie('loggedIn');
+        res.clearCookie('userId');
+        res.redirect('/login');
+    };
 /*
 ╔═╗─┐ ┬┌─┐┌─┐┬─┐┌┬┐
 ║╣ ┌┴┬┘├─┘│ │├┬┘ │
@@ -50,6 +57,7 @@ module.exports = (db) => {
         new: newControllerCallback,
         create: createControllerCallback,
         login: loginControllerCallback,
-        verify: verifyControllerCallback
+        verify: verifyControllerCallback,
+        logout: logoutControllerCallback
     };
 };
