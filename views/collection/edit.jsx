@@ -10,21 +10,21 @@ class Edit extends React.Component {
                 <Navbar></Navbar>
                 <div className="mt-5 p-5 clearfix container">
                     <div className="row">
-                        <form method="POST" action={"/collection/"+id}>
+                        <form method="POST" action={"/collection/"+id+"?_method=patch"}>
                             <fieldset disabled>
                                 <div className="form-group">
                                     <label>User Id</label><br/>
-                                    <input className="form-control" name="user_id" defaultValue={user_id} required/>
+                                    <input className="form-control" name="user_id" value={user_id} required/>
                                 </div>
                                 <div className="form-group">
                                     <label>Liquor</label><br/>
                                     <div className="input-group">
-                                        <input className="form-control" name="liquor_id" defaultValue={liquor_id} required/>
+                                        <input className="form-control" name="liquor_id" value={liquor_id} required/>
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <label>Date Bought</label><br/>
-                                    <input className="form-control" name="date_bought" defaultValue={date_bought.toLocaleDateString()} required/>
+                                    <input className="form-control" name="date_bought" value={date_bought.toLocaleDateString()} required/>
                                 </div>
                             </fieldset>
                             <div className="form-group">
@@ -34,7 +34,6 @@ class Edit extends React.Component {
                             <div className="form-group">
                                 <input className="form-control btn btn-dark" type="submit" value="submit"/>
                             </div>
-                            <script src="../liquorSelect.js"/>
                         </form>
                     </div>
                 </div>

@@ -17,7 +17,7 @@ class New extends React.Component {
                             <div className="form-group">
                                 <label>Liquor</label><br/>
                                 <div className="input-group">
-                                    <select className="custom-select" id="liquorSelect">
+                                    <select className="custom-select" id="liquorSelect" name="liquor_id">
                                         <option>Choose...</option>
                                     </select>
                                     <div className="input-group-append">

@@ -33,7 +33,9 @@ module.exports = (app, allModels) => {
 // get edit form
     app.get('/collection/:id/edit',collectionControl.edit);
 // update the selected item
-    app.post('/collection/:id',collectionControl.update);
+    app.patch('/collection/:id',collectionControl.update);
 // read an entry in collection
     app.get('/collection/:id',collectionControl.show);
+// delete an entry in collection
+    app.delete('/collection/:id',collectionControl.delete);
 };

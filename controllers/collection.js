@@ -22,14 +22,12 @@ module.exports = (db) => {
 
     let showControllerCallback = (req,res) => {
         db.collection.show(req,(err,result)=>{
-        console.log('ALPHA');
             res.render('collection/show',result);
         });
     };
 
     let editControllerCallback = (req,res) => {
         db.collection.show(req,(err,result)=>{
-        console.log('BRAVO');
             res.render('collection/edit',result);
         });
     };
@@ -37,6 +35,12 @@ module.exports = (db) => {
     let updateControllerCallback = (req,res) => {
         db.collection.update(req,(err,result)=>{
             res.render('collection/show',result);
+        });
+    };
+
+    let deleteControllerCallback = (req,res) => {
+        db.collection.deleteEntry(req,(err,result)=>{
+            res.redirect('/collection/index');
         });
     };
 /*
@@ -50,6 +54,7 @@ module.exports = (db) => {
         index: indexControllerCallback,
         show: showControllerCallback,
         edit: editControllerCallback,
-        update: updateControllerCallback
+        update: updateControllerCallback,
+        delete: deleteControllerCallback
     };
 };
