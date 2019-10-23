@@ -38,4 +38,15 @@ module.exports = (app, allModels) => {
     app.get('/collection/:id',collectionControl.show);
 // delete an entry in collection
     app.delete('/collection/:id',collectionControl.delete);
+/*
+╦ ╦┌─┐┌─┐┬─┐┌─┐
+║ ║└─┐├┤ ├┬┘└─┐
+╚═╝└─┘└─┘┴└─└─┘
+*/
+// require user controller
+    const userControl = require('./controllers/user')(allModels);
+// get form to create new user
+    app.get('/register',userControl.new);
+// post form to create new user
+    app.post('/register',userControl.create);
 };

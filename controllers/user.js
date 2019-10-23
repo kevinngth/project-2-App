@@ -1,0 +1,38 @@
+module.exports = (db) => {
+/*
+╔═╗┌─┐┬  ┬  ┌┐ ┌─┐┌─┐┬┌─┌─┐
+║  ├─┤│  │  ├┴┐├─┤│  ├┴┐└─┐
+╚═╝┴ ┴┴─┘┴─┘└─┘┴ ┴└─┘┴ ┴└─┘
+*/
+    let newControllerCallback = (req,res) => {
+        res.render('user/new');
+    };
+
+    let createControllerCallback = (req,res) => {
+        db.user.create(req,(err,result)=>{
+            if (err) {
+                res.send(err.detail);
+            } else {
+                if (result !== null) {
+                    res.cookie('username',result[0].username);
+                    res.cookie('loggedIn','yes');
+                    res.cookie('userId',result[0].id);
+                    res.redirect('/collection/index');
+                } else {
+                    res.render('user/wrongLogin');
+                };
+            };
+        });
+    };
+
+
+/*
+╔═╗─┐ ┬┌─┐┌─┐┬─┐┌┬┐
+║╣ ┌┴┬┘├─┘│ │├┬┘ │
+╚═╝┴ └─┴  └─┘┴└─ ┴
+*/
+    return {
+        new: newControllerCallback,
+        create: createControllerCallback,
+    };
+};
