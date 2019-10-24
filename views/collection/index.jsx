@@ -4,41 +4,56 @@ const Navbar = require("../navbar");
 
 class Index extends React.Component {
     render() {
-        let tableData = this.props.result.map((liquor,index)=>{
-            let {id,user_id,liquor_id,date_bought,balance} = liquor;
+        console.log(this.props.req.cookies,this.props.result);
+        if (this.props.result===null) {
             return (
-                <tr key={index}>
-                    <th scope="row">{index+1}</th>
-                    <td>{id}</td>
-                    <td>{user_id}</td>
-                    <td>{liquor_id}</td>
-                    <td>{date_bought.toLocaleDateString()}</td>
-                    <td>{balance}</td>
-                </tr>
+                <Layout>
+                    <Navbar>{this.props.req.cookies.username}</Navbar>
+                    <div className="mt-5">
+                        <a href="/collection/new" className="btn btn-primary">Add to your collection</a>
+                    </div>
+                </Layout>
             );
-        });
-        return (
-            <Layout>
-                <Navbar></Navbar>
-                <div>
-                    <table className="table table-striped table-dark">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">id</th>
-                                <th scope="col">user_id</th>
-                                <th scope="col">liquor_id</th>
-                                <th scope="col">date_bought</th>
-                                <th scope="col">quantity</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {tableData}
-                        </tbody>
-                    </table>
-                </div>
-            </Layout>
-        );
+        } else {
+            let tableData = this.props.result.map((liquor,index)=>{
+                let {id,user_id,liquor_id,date_bought,balance} = liquor;
+                return (
+                    <tr key={index}>
+                        <th scope="row">{index+1}</th>
+                        <td>{id}</td>
+                        <td>{user_id}</td>
+                        <td>{liquor_id}</td>
+                        <td>{date_bought.toLocaleDateString()}</td>
+                        <td>{balance}</td>
+                    </tr>
+                );
+            });
+            return (
+                <Layout>
+                    <Navbar>{this.props.cookies.username}</Navbar>
+                    <div>
+                        <div className="mt-5">
+                            <a href="/collection/new" className="btn btn-primary">Add to your collection</a>
+                        </div>
+                        <table className="table table-striped table-dark">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">id</th>
+                                    <th scope="col">user_id</th>
+                                    <th scope="col">liquor_id</th>
+                                    <th scope="col">date_bought</th>
+                                    <th scope="col">quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {tableData}
+                            </tbody>
+                        </table>
+                    </div>
+                </Layout>
+            );
+        };
     };
 };
 

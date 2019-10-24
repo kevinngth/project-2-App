@@ -27,7 +27,8 @@ module.exports = (db) => {
             res.redirect('/login');
         } else {
             db.collection.selectAll(req,(err,result)=>{
-                res.render('collection/index',{result});
+                let data = {req,result};
+                res.render('collection/index',data);
             });
         };
     };

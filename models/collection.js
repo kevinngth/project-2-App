@@ -21,8 +21,9 @@ module.exports = (pool) => {
     };
 
     let selectAll = (req,callback) => {
-        let query = 'SELECT * FROM collection';
-        pool.query(query,(err,res)=>{
+        let values = [req.cookies.userId];
+        let query = 'SELECT collection.id,collection.user_id,collection.liquor_id,collection.date_bought,collection.balance,liquor.name,liquor.type FROM collection INNER JOIN liquor ON collection.liquor_id = liquor.id WHERE collection.user_id=$1';
+        pool.query(query,values,(err,res)=>{
             if (err) {
                 callback(err,null)
             } else {
