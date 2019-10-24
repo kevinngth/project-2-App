@@ -5,23 +5,17 @@ class New extends React.Component {
     render() {
         return (
             <Layout>
-
-                <div className="jumbotron">
-                    <h1 className="display-4">Sign up</h1>
-                    <form method="POST" action="/register">
-                        <div className="form-group">
-                            <label>Username</label>
-                            <input className="form-control" type="text" placeholder="username" name="username" required/>
-                        </div>
-                        <div className="form-group">
-                            <label>Password</label>
-                            <input className="form-control" type="password" placeholder="password" name="password" required/>
-                        </div>
-                        <input className="btn btn-primary btn-lg" type="submit" value="Sign up"/>
-                        <a className="ml-3" href="#"><button type="button" className="btn btn-outline-primary btn-lg">Terms & Conditions</button></a>
-                    </form>
+                <div className="mt-5 container d-flex align-content-center justify-content-center">
+                    <div className="text-center">
+                        <form className="form-signin" method="POST" action="/register">
+                            <h1 className="h3 mb-3 font-weight-normal">Sign up</h1>
+                                <input type="text" className="form-control" placeholder="username" name="username" required autoFocus/>
+                                <input type="password" className="form-control" placeholder="Password" name="password" required/>
+                            <br/>
+                            <button className="btn btn-lg btn-secondary btn-block" type="submit">Sign Up</button>
+                        </form>
+                    </div>
                 </div>
-
            </Layout>
         );
     };

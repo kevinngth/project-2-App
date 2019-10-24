@@ -5,43 +5,71 @@ module.exports = (db) => {
 ╚═╝┴ ┴┴─┘┴─┘└─┘┴ ┴└─┘┴ ┴└─┘
 */
     let newControllerCallback = (req,res) => {
-        res.render('collection/new');
+        if (req.cookies.loggedIn !== 'yes') {
+            res.redirect('/login');
+        } else {
+            res.render('collection/new');
+        };
     };
 
     let createControllerCallback = (req,res) => {
-        db.collection.create(req,(err,result)=>{
-            res.render('collection/show',result);
-        });
+        if (req.cookies.loggedIn !== 'yes') {
+            res.redirect('/login');
+        } else {
+            db.collection.create(req,(err,result)=>{
+                res.render('collection/show',result);
+            });
+        };
     };
 
     let indexControllerCallback = (req,res) => {
-        db.collection.selectAll(req,(err,result)=>{
-            res.render('collection/index',{result});
-        });
+        if (req.cookies.loggedIn !== 'yes') {
+            res.redirect('/login');
+        } else {
+            db.collection.selectAll(req,(err,result)=>{
+                res.render('collection/index',{result});
+            });
+        };
     };
 
     let showControllerCallback = (req,res) => {
-        db.collection.show(req,(err,result)=>{
-            res.render('collection/show',result);
-        });
+        if (req.cookies.loggedIn !== 'yes') {
+            res.redirect('/login');
+        } else {
+            db.collection.show(req,(err,result)=>{
+                res.render('collection/show',result);
+            });
+        };
     };
 
     let editControllerCallback = (req,res) => {
-        db.collection.show(req,(err,result)=>{
-            res.render('collection/edit',result);
-        });
+        if (req.cookies.loggedIn !== 'yes') {
+            res.redirect('/login');
+        } else {
+            db.collection.show(req,(err,result)=>{
+                res.render('collection/edit',result);
+            });
+        };
     };
 
     let updateControllerCallback = (req,res) => {
-        db.collection.update(req,(err,result)=>{
-            res.render('collection/show',result);
-        });
+        if (req.cookies.loggedIn !== 'yes') {
+            res.redirect('/login');
+        } else {
+            db.collection.update(req,(err,result)=>{
+                res.render('collection/show',result);
+            });
+        };
     };
 
     let deleteControllerCallback = (req,res) => {
-        db.collection.deleteEntry(req,(err,result)=>{
-            res.redirect('/collection/index');
-        });
+        if (req.cookies.loggedIn !== 'yes') {
+            res.redirect('/login');
+        } else {
+            db.collection.deleteEntry(req,(err,result)=>{
+                res.redirect('/collection/index');
+            });
+        };
     };
 /*
 ╔═╗─┐ ┬┌─┐┌─┐┬─┐┌┬┐

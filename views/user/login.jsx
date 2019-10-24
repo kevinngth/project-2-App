@@ -5,7 +5,7 @@ class Login extends React.Component {
     render() {
         return (
             <Layout>
-                <div className="container">
+                <div className="mt-5 container d-flex align-content-center justify-content-center">
                     <div className="text-center">
                         <form className="form-signin" method="POST" action="/login">
                             <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
@@ -13,8 +13,10 @@ class Login extends React.Component {
                             <input type="text" className="form-control" placeholder="username" name="username" required autoFocus/>
                             <label className="sr-only">Password</label>
                             <input type="password" className="form-control" placeholder="Password" name="password" required/>
-                            <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                            <a href="/register"><button className="btn btn-lg btn-primary btn-block">Register</button></a>
+                            <br/>
+                            <button className="btn btn-lg btn-secondary btn-block" type="submit">Sign in</button>
+                            <br/>
+                            <a href="/register" className="btn btn-lg btn-secondary btn-block">Register</a>
                         </form>
                     </div>
                 </div>
