@@ -8,7 +8,8 @@ module.exports = (db) => {
         if (req.cookies.loggedIn !== 'yes') {
             res.redirect('/login');
         } else {
-            res.render('collection/new');
+            let data = {req};
+            res.render('collection/new',data);
         };
     };
 
@@ -17,7 +18,8 @@ module.exports = (db) => {
             res.redirect('/login');
         } else {
             db.collection.create(req,(err,result)=>{
-                res.render('collection/show',result);
+                let data = {req,result};
+                res.render('collection/show',data);
             });
         };
     };

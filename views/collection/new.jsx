@@ -6,13 +6,13 @@ class New extends React.Component {
     render() {
         return (
             <Layout>
-                <Navbar></Navbar>
+                <Navbar>{this.props.req.cookies.username}</Navbar>
                 <div className="mt-5 p-5 clearfix container">
                     <div className="row">
                         <form method="POST" action="/collection/new">
-                            <div className="form-group">
+                            <div className="d-none form-group">
                                 <label>User Id</label><br/>
-                                <input className="form-control" name="user_id" required/>
+                                <input className="form-control" name="user_id" value={this.props.req.cookies.userId} required/>
                             </div>
                             <div className="form-group">
                                 <label>Liquor</label><br/>

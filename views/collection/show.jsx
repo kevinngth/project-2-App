@@ -4,11 +4,11 @@ const Navbar = require("../navbar");
 
 class Show extends React.Component {
     render() {
-        let {id,user_id,liquor_id,date_bought,balance} = this.props[0];
+        let {id,user_id,liquor_id,date_bought,balance} = this.props.result[0];
         return (
             <Layout>
-                <Navbar></Navbar>
-                <div>
+                <Navbar>{this.props.req.cookies.username}</Navbar>
+                <div className="container mt-5">
                     <h6>{id}</h6>
                     <h6>{user_id}</h6>
                     <h6>{liquor_id}</h6>
