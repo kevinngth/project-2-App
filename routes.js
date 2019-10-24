@@ -31,7 +31,7 @@ module.exports = (app, allModels) => {
 // get your collection
     app.get('/collection/index',collectionControl.index);
 // get edit form
-    app.get('/collection/:id/edit',collectionControl.edit);
+    // app.get('/collection/:id/edit',collectionControl.edit);
 // update the selected item
     app.patch('/collection/:id',collectionControl.update);
 // read an entry in collection

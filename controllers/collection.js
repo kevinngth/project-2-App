@@ -18,8 +18,7 @@ module.exports = (db) => {
             res.redirect('/login');
         } else {
             db.collection.create(req,(err,result)=>{
-                let data = {req,result};
-                res.render('collection/show',data);
+                res.redirect(`/collection/${result[0].id}`);
             });
         };
     };
@@ -40,27 +39,32 @@ module.exports = (db) => {
             res.redirect('/login');
         } else {
             db.collection.show(req,(err,result)=>{
-                res.render('collection/show',result);
+                let data = {req,result};
+                if (req.cookies.userId == result[0].user_id) {
+                    res.render('collection/show',data);
+                } else {
+                    res.render('error',data);
+                };
             });
         };
     };
 
-    let editControllerCallback = (req,res) => {
-        if (req.cookies.loggedIn !== 'yes') {
-            res.redirect('/login');
-        } else {
-            db.collection.show(req,(err,result)=>{
-                res.render('collection/edit',result);
-            });
-        };
-    };
+    // let editControllerCallback = (req,res) => {
+    //     if (req.cookies.loggedIn !== 'yes') {
+    //         res.redirect('/login');
+    //     } else {
+    //         db.collection.show(req,(err,result)=>{
+    //             res.render('collection/edit',result);
+    //         });
+    //     };
+    // };
 
     let updateControllerCallback = (req,res) => {
         if (req.cookies.loggedIn !== 'yes') {
             res.redirect('/login');
         } else {
             db.collection.update(req,(err,result)=>{
-                res.render('collection/show',result);
+                res.redirect(`/collection/index`);
             });
         };
     };
@@ -84,7 +88,7 @@ module.exports = (db) => {
         create: createControllerCallback,
         index: indexControllerCallback,
         show: showControllerCallback,
-        edit: editControllerCallback,
+        // edit: editControllerCallback,
         update: updateControllerCallback,
         delete: deleteControllerCallback
     };

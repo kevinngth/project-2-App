@@ -28,7 +28,7 @@ class Index extends React.Component {
                                 <div style={{width: string}} className="progress-bar progress-bar-striped bg-secondary" role="progressbar"></div>
                             </div>
                         </td>
-                        <td><a className="text-white" href={"/collection/"+id+"/edit"}><i className="fas fa-edit"></i></a></td>
+                        <td><a className="text-white" href={"/collection/"+id}><i className="fas fa-edit"></i></a></td>
                     </tr>
                 );
             });

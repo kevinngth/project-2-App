@@ -38,7 +38,7 @@ module.exports = (pool) => {
 
     let show = (req,callback) => {
         let values = [req.params.id];
-        let query = 'SELECT * FROM collection WHERE id=$1';
+        let query = 'SELECT collection.id,collection.user_id,collection.liquor_id,collection.date_bought,collection.balance,liquor.name,liquor.type FROM collection INNER JOIN liquor ON collection.liquor_id = liquor.id WHERE collection.id=$1';
         pool.query(query,values,(err,res)=>{
             if (err) {
                 callback(err,null)
