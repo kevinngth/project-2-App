@@ -3,6 +3,23 @@ const React = require("react");
 const Layout = require("../layout");
 const Navbar = require("../navbar");
 
+// random cocktail
+var unirest = require("unirest");
+
+var req = unirest("GET", "https://the-cocktail-db.p.rapidapi.com/random.php");
+
+req.headers({
+    "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
+    "x-rapidapi-key": "e58b63a2c1mshe6929549bc8fde4p1fe576jsn26b5394fcf54"
+});
+
+
+req.end(function (res) {
+    if (res.error) throw new Error(res.error);
+
+    console.log(res.body);
+});
+
 class Index extends React.Component {
     render() {
         if (this.props.result===null) {
@@ -10,7 +27,7 @@ class Index extends React.Component {
                 <Layout>
                     <Navbar>{this.props.req.cookies.username}</Navbar>
                     <div className="row mt-5">
-                        <a href="/collection/new" className="btn btn-dark m-5">Add to your collection</a>
+                        <a href="/collection/new" className="btn btn-dark my-5 mx-auto">Add to your collection</a>
                     </div>
                 </Layout>
             );

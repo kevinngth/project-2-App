@@ -28,8 +28,6 @@ module.exports = (pool) => {
                 callback(err,null)
             } else {
                 if (res.rows.length>0) {
-                    console.log(query);
-                    console.log(res.rows);
                     callback(null,res.rows);
                 } else {
                     callback(null,null);
