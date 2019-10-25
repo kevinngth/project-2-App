@@ -24,7 +24,7 @@ class Edit extends React.Component {
                                 </div>
                                 <div className="form-group">
                                     <label>Date Bought</label><br/>
-                                    <input className="form-control" name="date_bought" value={date_bought.toLocaleDateString()} required/>
+                                    <input type="date" className="form-control" name="date_bought" value={date_bought.toLocaleDateString()} required/>
                                 </div>
                             </fieldset>
                             <div className="form-group">

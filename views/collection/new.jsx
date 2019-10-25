@@ -27,7 +27,7 @@ class New extends React.Component {
                             </div>
                             <div className="form-group">
                                 <label>Date Bought</label><br/>
-                                <input className="form-control" name="date_bought" required/>
+                                <input type="date" className="form-control" name="date_bought" required/>
                             </div>
                             <div className="form-group">
                                 <label>Balance</label><br/>

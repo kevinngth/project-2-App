@@ -21,13 +21,15 @@ module.exports = (pool) => {
     };
 
     let selectAll = (req,callback) => {
-        let values = [req.cookies.userId];
-        let query = 'SELECT collection.id,collection.user_id,collection.liquor_id,collection.date_bought,collection.balance,liquor.name,liquor.type FROM collection INNER JOIN liquor ON collection.liquor_id = liquor.id WHERE collection.user_id=$1';
-        pool.query(query,values,(err,res)=>{
+        let checkForQuery = req.query.col===undefined ? "" : " ORDER BY "+req.query.col+" "+req.query.order;
+        let query = "SELECT collection.id,collection.user_id,collection.liquor_id,collection.date_bought,collection.balance,liquor.name,liquor.type FROM collection INNER JOIN liquor ON collection.liquor_id = liquor.id WHERE collection.user_id="+req.cookies.userId+checkForQuery;
+        pool.query(query,(err,res)=>{
             if (err) {
                 callback(err,null)
             } else {
                 if (res.rows.length>0) {
+                    console.log(query);
+                    console.log(res.rows);
                     callback(null,res.rows);
                 } else {
                     callback(null,null);

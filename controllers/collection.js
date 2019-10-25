@@ -18,7 +18,7 @@ module.exports = (db) => {
             res.redirect('/login');
         } else {
             db.collection.create(req,(err,result)=>{
-                res.redirect(`/collection/${result[0].id}`);
+                res.redirect(`/collection/index`);
             });
         };
     };
@@ -49,16 +49,6 @@ module.exports = (db) => {
         };
     };
 
-    // let editControllerCallback = (req,res) => {
-    //     if (req.cookies.loggedIn !== 'yes') {
-    //         res.redirect('/login');
-    //     } else {
-    //         db.collection.show(req,(err,result)=>{
-    //             res.render('collection/edit',result);
-    //         });
-    //     };
-    // };
-
     let updateControllerCallback = (req,res) => {
         if (req.cookies.loggedIn !== 'yes') {
             res.redirect('/login');
@@ -88,7 +78,6 @@ module.exports = (db) => {
         create: createControllerCallback,
         index: indexControllerCallback,
         show: showControllerCallback,
-        // edit: editControllerCallback,
         update: updateControllerCallback,
         delete: deleteControllerCallback
     };

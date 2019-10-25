@@ -1,3 +1,4 @@
+const moment = require('moment');
 const React = require("react");
 const Layout = require("../layout");
 const Navbar = require("../navbar");
@@ -25,7 +26,7 @@ class Show extends React.Component {
                             <form method="POST" action={"/collection/"+id+"?_method=patch"}>
                                 <div className="form-group">
                                     <label>Date Bought</label><br/>
-                                    <input className="form-control" name="date_bought" defaultValue={date_bought.toLocaleDateString()} required/>
+                                    <input type="text" className="form-control" name="date_bought" defaultValue={moment(date_bought).format("Do MMM YY")} max={moment()} required/>
                                 </div>
                                 <div className="form-group">
                                     <label>Balance</label><br/>

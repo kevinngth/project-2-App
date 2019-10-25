@@ -1,3 +1,4 @@
+const moment = require('moment');
 const React = require("react");
 const Layout = require("../layout");
 const Navbar = require("../navbar");
@@ -20,9 +21,9 @@ class Index extends React.Component {
                 return (
                     <tr key={index}>
                         <th scope="row">{index+1}</th>
-                        <td><a className="text-white" href={"/liquor/"+liquor_id}><i className="fas fa-eye"></i></a> {name}</td>
+                        <td><a className="text-white" href={"/liquor/"+liquor_id}>{name}</a></td>
                         <td>{type}</td>
-                        <td>{date_bought.toLocaleDateString()}</td>
+                        <td>{moment(date_bought).format("Do MMM YY")}</td>
                         <td>
                             <div className="progress">
                                 <div style={{width: string}} className="progress-bar progress-bar-striped bg-secondary" role="progressbar"></div>
@@ -43,10 +44,10 @@ class Index extends React.Component {
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Date Bought</th>
-                                    <th scope="col">Balance</th>
+                                    <th scope="col">Name <a href="/collection/index?col=name&order=ASC"><i className="fas fa-caret-up" name="sortby"></i></a> <a href="/collection/index?col=name&order=DESC"><i className="fas fa-caret-down"></i></a> </th>
+                                    <th scope="col">Type <a href="/collection/index?col=type&order=ASC"><i className="fas fa-caret-up"></i></a> <a href="/collection/index?col=type&order=DESC"><i className="fas fa-caret-down"></i></a></th>
+                                    <th scope="col">Date Bought <a href="/collection/index?col=date_bought&order=ASC"><i className="fas fa-caret-up"></i></a> <a href="/collection/index?col=date_bought&order=DESC"><i className="fas fa-caret-down"></i></a></th>
+                                    <th scope="col">Balance <a href="/collection/index?col=balance&order=ASC"><i className="fas fa-caret-up"></i></a> <a href="/collection/index?col=balance&order=DESC"><i className="fas fa-caret-down"></i></a></th>
                                     <th scope="col">Edit</th>
                                 </tr>
                             </thead>
