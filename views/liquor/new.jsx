@@ -7,18 +7,27 @@ class New extends React.Component {
         return (
             <Layout>
                 <Navbar></Navbar>
-                <div className="mt-5">
+                <div className="mt-5 p-5 clearfix container d-flex align-content-center justify-content-center">
                     <form method="POST" action="/liquor/new">
                         <div className="form-group">
-                            <label>name:</label><br/>
-                            <input name="name" required/><br/>
+                            <label>name:</label>
+                            <input className="form-control form-control-lg" name="name" required/><br/>
                         </div>
                         <div className="form-group">
-                            <label>type:</label><br/>
-                            <input name="type" required/><br/>
+                            <label>type:</label>
+                            <input className="form-control form-control-lg" list="types" type="text" name="type" required/>
+                            <datalist id="types">
+                                <option value="Brandy"></option>
+                                <option value="Whisky"></option>
+                                <option value="Gin"></option>
+                                <option value="Wine"></option>
+                                <option value="Vodka"></option>
+                                <option value="Tequila"></option>
+                                <option value="Rum"></option>
+                            </datalist>
                         </div>
                         <div className="form-group">
-                            <input type="submit" value="submit"/>
+                            <input className="form-control btn btn-secondary" type="submit" value="submit"/>
                         </div>
                     </form>
                 </div>

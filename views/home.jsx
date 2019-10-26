@@ -13,7 +13,7 @@ class Home extends React.Component {
                             <div className="row">
                                 <div className="col-md-6">
                                     <h1 className="display-3">Jyggr <i className="text-warning fas fa-wine-bottle"></i></h1>
-                                    <p>Jyggr is alcohol stock taking app that is named after that popular bartending tool jigger.</p>
+                                    <p className="text-dark">Jyggr is alcohol stock taking app that is named after that popular bartending tool jigger, used to measure quantities of alcohol during cocktail mixing.</p>
                                     <p><a className="btn btn-dark btn-lg" href="#" role="button">Learn more &raquo;</a></p>
                                 </div>
                                 <div className="col-md-6">
@@ -24,17 +24,17 @@ class Home extends React.Component {
                     </div>
                     <div className="container">
                         <div className="row">
-                            <div className="col-md-4 text-light">
+                            <div className="col-md-4">
                                 <h2>Keep track of your collection</h2>
                                 <p>Ever wondered how much alcohol left you have back at home? Ever bought a new bottle only to realised that you still have an unopened one on the shelf?</p>
                                 <p><a className="btn btn-secondary" href="/collection/new" role="button">Start tracking &raquo;</a></p>
                             </div>
-                            <div className="col-md-4 text-light">
+                            <div className="col-md-4">
                                 <h2>Keep notes</h2>
                                 <p>Saw a familiar bottle but forgot how it tasted? Want to find a drink that matches your cravings?</p>
                                 <p><a className="btn btn-secondary" href="#" role="button">Refer to your notes &raquo;</a></p>
                             </div>
-                            <div className="col-md-4 text-light">
+                            <div className="col-md-4">
                                 <h2>Check out other's notes</h2>
                                 <p>Suffered from buyer's remorse? Check out what other's notes say before committing to the purchase</p>
                                 <p><a className="btn btn-secondary" href="#" role="button">See others &raquo;</a></p>
