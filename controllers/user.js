@@ -48,6 +48,11 @@ module.exports = (db) => {
         res.clearCookie('userId');
         res.redirect('/login');
     };
+
+    let home = (req,res) => {
+        let data = {req};
+        res.render('home',data);
+    };
 /*
 ╔═╗─┐ ┬┌─┐┌─┐┬─┐┌┬┐
 ║╣ ┌┴┬┘├─┘│ │├┬┘ │
@@ -58,6 +63,7 @@ module.exports = (db) => {
         create: createControllerCallback,
         login: loginControllerCallback,
         verify: verifyControllerCallback,
-        logout: logoutControllerCallback
+        logout: logoutControllerCallback,
+        home
     };
 };

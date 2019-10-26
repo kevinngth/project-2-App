@@ -19,3 +19,13 @@ CREATE TABLE "liquor" (
 	"name" TEXT,
 	"type" TEXT
 );
+
+CREATE TABLE "notes" (
+  "id" SERIAL,
+  "user_id" INTEGER,
+  "liquor_id" INTEGER,
+  "notes" TEXT,
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "FK" ON  "notes" ("user_id", "liquor_id");
