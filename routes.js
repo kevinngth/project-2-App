@@ -17,6 +17,8 @@ module.exports = (app, allModels) => {
     app.get('/liquor/index',liquorControl.index);
 // get all liquor in page
     app.get('/liquor/all',liquorControl.showAll);
+// show a single liquor
+    app.get('/liquor/:id',liquorControl.show);
 /*
 ╔═╗┌─┐┬  ┬  ┌─┐┌─┐┌┬┐┬┌─┐┌┐┌
 ║  │ ││  │  ├┤ │   │ ││ ││││

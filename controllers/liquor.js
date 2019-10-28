@@ -27,6 +27,14 @@ module.exports = (db) => {
             res.render('liquor/index',data);
         });
     };
+
+    let showControllerCallback = (req,res) => {
+        db.liquor.show(req,(err,result)=>{
+            let data = {req,result};
+            console.log(result);
+            res.render('liquor/show',data);
+        });
+    };
 /*
 ╔═╗─┐ ┬┌─┐┌─┐┬─┐┌┬┐
 ║╣ ┌┴┬┘├─┘│ │├┬┘ │
@@ -36,6 +44,7 @@ module.exports = (db) => {
         new: newControllerCallback,
         create: createControllerCallback,
         index: indexControllerCallback,
-        showAll
+        showAll,
+        show: showControllerCallback
     };
 };

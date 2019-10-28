@@ -23,7 +23,7 @@ class Index extends React.Component {
                         </div>
                     </div>
                     <div className="col-8">
-                        <div className="tab-content text-light" id="nav-tabContent">
+                        <div className="tab-content" id="nav-tabContent">
                         </div>
                     </div>
                 </div>
