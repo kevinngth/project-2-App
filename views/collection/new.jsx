@@ -21,7 +21,7 @@ class New extends React.Component {
                                         <option disabled>Choose...</option>
                                     </select>
                                     <div className="ml-3">
-                                        <button type="button" className="btn btn-secondary" data-toggle="modal" data-target="#newLiquor">TEST Create New</button>
+                                        <button type="button" className="btn btn-secondary" data-toggle="modal" data-target="#newLiquor">Create New</button>
                                     </div>
                                 </div>
                             </div>

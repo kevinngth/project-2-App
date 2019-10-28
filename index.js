@@ -18,6 +18,8 @@ app.use(express.static('public'));
 
 app.use(express.urlencoded({extended: true}));
 
+app.use(express.json());
+
 // Set react-views to be the default view engine
 const reactEngine = require('express-react-views').createEngine();
 
