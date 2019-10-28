@@ -50,6 +50,9 @@ const collectionObject = collectionModels(pool);
 
 const userModels = require('./models/user');
 const userObject = userModels(pool);
+
+const notesModels = require('./models/notes');
+const notesObject = notesModels(pool);
 /*
 ╔═╗─┐ ┬┌─┐┌─┐┬─┐┌┬┐
 ║╣ ┌┴┬┘├─┘│ │├┬┘ │
@@ -62,5 +65,6 @@ module.exports = {
     pool,
     liquor: liquorObject,
     collection: collectionObject,
-    user: userObject
+    user: userObject,
+    notes: notesObject
 };

@@ -1,8 +1,5 @@
 // recieve the request
 var responseHandler = function() {
-    console.log("response text", this.responseText);
-    console.log("status text", this.statusText);
-    console.log("status code", this.status);
     let liquorArray = JSON.parse(this.responseText);
     liquorArray.forEach(liquor=>{
         let {id,name,type} = liquor;

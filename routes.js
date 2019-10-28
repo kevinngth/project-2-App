@@ -11,8 +11,6 @@ module.exports = (app, allModels) => {
 */
 // require liquor controller
     const liquorControl = require('./controllers/liquor')(allModels);
-// get form for new liquor
-    app.get('/liquor/new',liquorControl.new);
 // post contents from form to db
     app.post('/liquor/new',liquorControl.create);
 // get list of all liquor available
@@ -55,4 +53,13 @@ module.exports = (app, allModels) => {
     app.get('/logout',userControl.logout);
 // home
     app.get('/',userControl.home);
+/*
+╔╗╔┌─┐┌┬┐┌─┐┌─┐
+║║║│ │ │ ├┤ └─┐
+╝╚╝└─┘ ┴ └─┘└─┘
+*/
+// require notes controller
+    const notesControl = require('./controllers/notes')(allModels);
+// post form to creat new notes
+    app.post('/notes/create',notesControl.create);
 };

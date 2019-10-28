@@ -21,10 +21,7 @@ class New extends React.Component {
                                         <option disabled>Choose...</option>
                                     </select>
                                     <div className="ml-3">
-
-                                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#newLiquor">TEST Create New</button>
-
-                                        <a href='/liquor/new'><button className="btn btn-secondary" type="button">Create New</button></a>
+                                        <button type="button" className="btn btn-secondary" data-toggle="modal" data-target="#newLiquor">TEST Create New</button>
                                     </div>
                                 </div>
                             </div>
@@ -39,39 +36,50 @@ class New extends React.Component {
                             <div className="form-group">
                                 <input className="form-control btn btn-secondary" type="submit" value="submit"/>
                             </div>
-
-                            <div className="modal fade" id="newLiquor" tabIndex="-1" role="dialog">
-                                <div className="modal-dialog" role="document">
-                                    <div className="modal-content">
-                                        <div className="modal-header">
-                                            <h5 className="modal-title" id="exampleModalLabel">Add a new liquor</h5>
-                                            <button type="button" className="close" data-dismiss="modal">
-                                                <span>&times;</span>
-                                            </button>
-                                        </div>
-                                        <div className="modal-body">
-                                            <form>
-                                                <div className="form-group">
-                                                    <label for="recipient-name" className="col-form-label">Recipient:</label>
-                                                    <input type="text" className="form-control" id="recipient-name"/>
-                                                </div>
-                                          <div className="form-group">
-                                            <label for="message-text" className="col-form-label">Message:</label>
-                                            <textarea className="form-control" id="message-text"></textarea>
-                                          </div>
-                                        </form>
-                                      </div>
-                                      <div className="modal-footer">
-                                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" className="btn btn-primary">Send message</button>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                            <script src="../liquorSelect.js"/>
                         </form>
+                        <div className="modal fade" id="newLiquor" tabIndex="-1" role="dialog">
+                            <div className="modal-dialog" role="document">
+                                <div className="modal-content text-dark">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title">Add a new liquor</h5>
+                                        <button type="button" className="close" data-dismiss="modal">
+                                            <span>&times;</span>
+                                        </button>
+                                    </div>
+                                    <form id="newLiquorFormSubmit">
+                                        <div className="modal-body">
+                                            <div className="form-group">
+                                                <label>Name:</label>
+                                                <input id="liquorName" className="form-control form-control-lg" name="name" required/><br/>
+                                            </div>
+                                            <div className="form-group">
+                                                <label>Type:</label>
+                                                <input id="liquorType" className="form-control form-control-lg" list="types" type="text" name="type" required/>
+                                                <datalist id="types">
+                                                    <option value="Brandy"></option>
+                                                    <option value="Whisky"></option>
+                                                    <option value="Gin"></option>
+                                                    <option value="Wine"></option>
+                                                    <option value="Vodka"></option>
+                                                    <option value="Tequila"></option>
+                                                    <option value="Rum"></option>
+                                                </datalist>
+                                            </div>
+                                            <div className="form-group">
+                                            </div>
+                                        </div>
+                                        <div className="modal-footer">
+                                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <input type="submit" className="btn btn-dark" value="Submit"/>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <script src="../liquorSelect.js"/>
+                <script src="../newLiquor.js"/>
             </Layout>
         );
     };

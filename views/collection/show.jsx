@@ -17,10 +17,17 @@ class Show extends React.Component {
                             <h1 className="my-5 display-4">{name}</h1>
                         </div>
                         <div className="col-6 p-5">
-                            <form>
+                            <form method="POST" action="/notes/create">
+                                <div className="d-none form-group">
+                                    <label>Liquor Id</label><br/>
+                                    <input className="form-control" name="liquor_id" value={liquor_id} required/>
+                                </div>
                                 <div className="form-group">
                                     <label>Notes</label>
-                                    <textarea className="form-control" rows="3"></textarea>
+                                    <textarea className="form-control" rows="3" name="notes" placeholder="Your notes here"></textarea>
+                                </div>
+                                <div className="form-group">
+                                    <input className="form-control btn btn-dark" type="submit" defaultValue="Submit"/>
                                 </div>
                             </form>
                         </div>
@@ -35,7 +42,7 @@ class Show extends React.Component {
                                     <input type="range" className="custom-range" min="0" max="10" step="1" defaultValue={balance} name="balance"/>
                                 </div>
                                 <div className="form-group">
-                                    <input className="form-control btn btn-dark" type="submit" defaultValue="submit"/>
+                                    <input className="form-control btn btn-dark" type="submit" defaultValue="Submit"/>
                                 </div>
                             </form>
                             <div className="alert alert-warning" role="alert">
