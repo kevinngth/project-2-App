@@ -13,8 +13,10 @@ module.exports = (app, allModels) => {
     const liquorControl = require('./controllers/liquor')(allModels);
 // post contents from form to db
     app.post('/liquor/new',liquorControl.create);
-// get list of all liquor available
+// ajax call list of all liquor available
     app.get('/liquor/index',liquorControl.index);
+// get all liquor in page
+    app.get('/liquor/all',liquorControl.showAll);
 /*
 ╔═╗┌─┐┬  ┬  ┌─┐┌─┐┌┬┐┬┌─┐┌┐┌
 ║  │ ││  │  ├┤ │   │ ││ ││││

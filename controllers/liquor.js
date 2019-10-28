@@ -20,6 +20,13 @@ module.exports = (db) => {
             res.send(result);
         });
     };
+
+    let showAll = (req,res) => {
+        db.liquor.index(req,(err,result)=>{
+            let data = {req,result};
+            res.render('liquor/index',data);
+        });
+    };
 /*
 ╔═╗─┐ ┬┌─┐┌─┐┬─┐┌┬┐
 ║╣ ┌┴┬┘├─┘│ │├┬┘ │
@@ -28,6 +35,7 @@ module.exports = (db) => {
     return {
         new: newControllerCallback,
         create: createControllerCallback,
-        index: indexControllerCallback
+        index: indexControllerCallback,
+        showAll
     };
 };
