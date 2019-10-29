@@ -32,12 +32,12 @@ class Home extends React.Component {
                             <div className="col-md-4">
                                 <h2>Keep notes</h2>
                                 <p>Saw a familiar bottle but forgot how it tasted? Want to find a drink that matches your cravings?</p>
-                                <p><a className="btn btn-secondary" href="#" role="button">Refer to your notes &raquo;</a></p>
+                                <p><a className="btn btn-secondary" href="/liquor/all" role="button">Refer to your notes &raquo;</a></p>
                             </div>
                             <div className="col-md-4">
                                 <h2>Check out other's notes</h2>
                                 <p>Suffered from buyer's remorse? Check out what other's notes say before committing to the purchase</p>
-                                <p><a className="btn btn-secondary" href="#" role="button">See others &raquo;</a></p>
+                                <p><a className="btn btn-secondary" href="/users" role="button">See others &raquo;</a></p>
                             </div>
                         </div>
                     </div>
