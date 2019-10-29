@@ -19,6 +19,37 @@ module.exports = (pool) => {
             };
         });
     };
+
+    let selectIndividualNoteFromCollectionPage = (values,callback) => {
+        let query = `SELECT * FROM notes WHERE user_id=$1 AND liquor_id=$2`;
+        pool.query(query,values,(err,res)=>{
+            if (err) {
+                callback(err,null)
+            } else {
+                if (res.rows.length>0) {
+                    callback(null,res.rows);
+                } else {
+                    callback(null,null);
+                };
+            };
+        });
+    };
+
+    let edit = (req,callback) => {
+        let values = [req.body.notes,req.body.user_id,req.body.liquor_id]
+        let query = `UPDATE notes SET notes=$1 WHERE user_id=$2 AND liquor_id=$3 RETURNING *`;
+        pool.query(query,values,(err,res)=>{
+            if (err) {
+                callback(err,null)
+            } else {
+                if (res.rows.length>0) {
+                    callback(null,res.rows);
+                } else {
+                    callback(null,null);
+                };
+            };
+        });
+    };
 /*
 ╔═╗─┐ ┬┌─┐┌─┐┬─┐┌┬┐
 ║╣ ┌┴┬┘├─┘│ │├┬┘ │
@@ -26,5 +57,7 @@ module.exports = (pool) => {
 */
     return {
         create: createNewNote,
+        select: selectIndividualNoteFromCollectionPage,
+        edit
     };
 };

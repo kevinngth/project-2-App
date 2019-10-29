@@ -65,5 +65,5 @@ module.exports = (app, allModels) => {
 // require notes controller
     const notesControl = require('./controllers/notes')(allModels);
 // post form to creat new notes
-    app.post('/notes/create',notesControl.create);
+    app.post('/notes/addNote',notesControl.addNote);
 };

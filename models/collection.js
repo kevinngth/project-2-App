@@ -53,8 +53,8 @@ module.exports = (pool) => {
     };
 
     let update = (req,callback) => {
-        let values = [req.body.balance,req.params.id];
-        let query = 'UPDATE collection SET balance=$1 WHERE id=$2 RETURNING *';
+        let values = [req.body.balance,req.body.date_bought,req.params.id];
+        let query = 'UPDATE collection SET balance=$1,date_bought=$2 WHERE id=$3 RETURNING *';
         pool.query(query,values,(err,res)=>{
             if (err) {
                 callback(err,null)
@@ -69,7 +69,6 @@ module.exports = (pool) => {
     };
 
     let deleteEntry = (req,callback) => {
-        console.log(req.params.id)
         let values = [req.params.id];
         let query = 'DELETE FROM collection WHERE id=$1';
         pool.query(query,values,(err,res)=>{

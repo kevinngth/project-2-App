@@ -39,12 +39,15 @@ module.exports = (db) => {
             res.redirect('/login');
         } else {
             db.collection.show(req,(err,result)=>{
-                let data = {req,result};
-                if (req.cookies.userId == result[0].user_id) {
-                    res.render('collection/show',data);
-                } else {
-                    res.render('error',data);
-                };
+                let values = [result[0].user_id,result[0].liquor_id];
+                db.notes.select(values,(err2,result2)=>{
+                    let data = {req,result,result2};
+                    if (req.cookies.userId == result[0].user_id) {
+                        res.render('collection/show',data);
+                    } else {
+                        res.render('error',data);
+                    };
+                });
             });
         };
     };
@@ -54,7 +57,7 @@ module.exports = (db) => {
             res.redirect('/login');
         } else {
             db.collection.update(req,(err,result)=>{
-                res.redirect(`/collection/index`);
+                res.redirect(req.headers.referer);
             });
         };
     };

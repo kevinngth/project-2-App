@@ -1,7 +1,7 @@
 const postNewLiquor = event => {
     let name = event.target[0].value;
     let type = event.target[1].value;
-    let data = { name: event.target[0].value, type: event.target[1].value};
+    let data = {name,type};
     let xhr = new XMLHttpRequest();
     xhr.open('POST','/liquor/new');
     xhr.setRequestHeader('Content-Type','application/json;charset=UTF-8');
