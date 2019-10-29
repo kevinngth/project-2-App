@@ -35,8 +35,8 @@
 ### Unsolved Problems
 	Social feature for users to be developed at a later date
 ### Wireframes
-![Login page](https://github.com/kevinngth/project-2-App/blob/master/drafts/wireframes/Log_In.png =250x)
-![Collection Index page](https://github.com/kevinngth/project-2-App/blob/master/drafts/wireframes/collectionIndexPage.png =250x)
+![Login page](https://github.com/kevinngth/project-2-App/blob/master/drafts/wireframes/Log_In.png)
+![Collection Index page](https://github.com/kevinngth/project-2-App/blob/master/drafts/wireframes/collectionIndexPage.png)
 ![Collection Show page draft 1](https://github.com/kevinngth/project-2-App/blob/master/drafts/wireframes/Show.png)
 ![Collection Show page](https://github.com/kevinngth/project-2-App/blob/master/drafts/wireframes/collectionShowPage.png)
 ![Liquor Show page](https://github.com/kevinngth/project-2-App/blob/master/drafts/wireframes/liquorDisplayPage.png)
