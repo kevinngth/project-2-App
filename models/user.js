@@ -53,6 +53,38 @@ module.exports = (pool) => {
             };
         });
     };
+
+    let update = (req,cloudUrl,callback) => {
+        let values = [cloudUrl,req.params.id];
+        let query = 'UPDATE users SET url=$1 WHERE id=$2 RETURNING *';
+        pool.query(query,values,(err,res)=>{
+            if (err) {
+                callback(err,null);
+            } else {
+                if (res.rows.length>0) {
+                    callback(null,res.rows);
+                } else {
+                    callback(null,null);
+                };
+            };
+        });
+    };
+
+    let show = (req,callback) => {
+        let values = [req.cookies.userId];
+        let query = 'SELECT * FROM users WHERE id=$1';
+        pool.query(query,values,(err,res)=>{
+            if (err) {
+                callback(err,null);
+            } else {
+                if (res.rows.length>0) {
+                    callback(null,res.rows);
+                } else {
+                    callback(null,null);
+                };
+            };
+        });
+    };
 /*
 ╔═╗─┐ ┬┌─┐┌─┐┬─┐┌┬┐
 ║╣ ┌┴┬┘├─┘│ │├┬┘ │
@@ -61,6 +93,8 @@ module.exports = (pool) => {
     return {
         create,
         verify,
-        index
+        index,
+        update,
+        show
     };
 };

@@ -1,3 +1,12 @@
+const cloudinary = require('cloudinary');
+
+if (process.env.CLOUDINARY_URL) {
+    var configForCloudinary = process.env.CLOUDINARY_URL;
+} else {
+    configForCloudinary = require("../config.json");
+};
+cloudinary.config(configForCloudinary);
+
 module.exports = (db) => {
 /*
 ╔═╗┌─┐┬  ┬  ┌┐ ┌─┐┌─┐┬┌─┌─┐
@@ -64,6 +73,33 @@ module.exports = (db) => {
             });
         };
     };
+
+    let showControllerCallback = (req,res) => {
+        if (req.cookies.loggedIn !== 'yes') {
+            res.redirect('/login');
+        } else {
+            if (req.cookies.userId==req.params.id) {
+                db.user.show(req,(err,result)=>{
+                    let data = {req,result};
+                    res.render('user/edit',data);
+                });
+            } else {
+                res.send('error');
+            };
+        };
+    };
+
+    let update = (req, res) => {
+        if (req.cookies.loggedIn !== 'yes') {
+            res.redirect('/login');
+        } else {
+            cloudinary.uploader.upload(req.file.path,result=>{
+                db.user.update(req,result.url,(err,result2)=>{
+                    res.redirect(req.headers.referer);
+                });
+            });
+        };
+    };
 /*
 ╔═╗─┐ ┬┌─┐┌─┐┬─┐┌┬┐
 ║╣ ┌┴┬┘├─┘│ │├┬┘ │
@@ -76,6 +112,8 @@ module.exports = (db) => {
         verify: verifyControllerCallback,
         logout: logoutControllerCallback,
         home,
-        index
+        index,
+        show: showControllerCallback,
+        update
     };
 };

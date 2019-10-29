@@ -4,6 +4,8 @@ module.exports = (app, allModels) => {
 ║  │ ││││├┤ ││ ┬│ │├┬┘├─┤ │ ││ ││││  ┌┼─  └─┐├┤  │   │ │├─┘
 ╚═╝└─┘┘└┘└  ┴└─┘└─┘┴└─┴ ┴ ┴ ┴└─┘┘└┘  └┘   └─┘└─┘ ┴   └─┘┴
 */
+const multer = require('multer');
+const upload = multer({ dest: './uploads/' });
 /*
 ╦  ┬┌─┐ ┬ ┬┌─┐┬─┐
 ║  ││─┼┐│ ││ │├┬┘
@@ -59,6 +61,10 @@ module.exports = (app, allModels) => {
     app.get('/',userControl.home);
 // show all users
     app.get('/users',userControl.index);
+// edit own page
+    app.get('/user/:id',userControl.show);
+// upload files via multer
+    app.post('/user/:id',upload.single('dp'),userControl.update);
 /*
 ╔╗╔┌─┐┌┬┐┌─┐┌─┐
 ║║║│ │ │ ├┤ └─┐

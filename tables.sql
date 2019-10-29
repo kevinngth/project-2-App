@@ -1,7 +1,8 @@
 CREATE TABLE "users" (
 	"id" SERIAL PRIMARY KEY,
 	"username" VARCHAR(15) UNIQUE,
-	"password" VARCHAR(128)
+	"password" VARCHAR(128),
+	"url" TEXT
 );
 
 CREATE TABLE "collection" (
