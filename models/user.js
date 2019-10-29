@@ -38,6 +38,21 @@ module.exports = (pool) => {
             };
         });
     };
+
+    let index = (req,callback) => {
+        let query = 'SELECT users.username,notes_count.user_id,notes_count.count AS notes_count,collection_count.count AS collection_count FROM users LEFT JOIN ( SELECT user_id, COUNT(*) FROM notes GROUP BY user_id ) AS notes_count ON users.id = notes_count.user_id LEFT JOIN ( SELECT user_id, COUNT(*) FROM collection GROUP BY user_id ) AS collection_count ON users.id = collection_count.user_id';
+        pool.query(query,(err,res)=>{
+            if (err) {
+                callback(err,null);
+            } else {
+                if (res.rows.length>0) {
+                    callback(null,res.rows);
+                } else {
+                    callback(null,null);
+                };
+            };
+        });
+    };
 /*
 ╔═╗─┐ ┬┌─┐┌─┐┬─┐┌┬┐
 ║╣ ┌┴┬┘├─┘│ │├┬┘ │
@@ -45,6 +60,7 @@ module.exports = (pool) => {
 */
     return {
         create,
-        verify
+        verify,
+        index
     };
 };

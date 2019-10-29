@@ -53,6 +53,17 @@ module.exports = (db) => {
         let data = {req};
         res.render('home',data);
     };
+
+    let index = (req,res) => {
+        if (req.cookies.loggedIn !== 'yes') {
+            res.redirect('/login');
+        } else {
+            db.user.index(req,(err,result)=>{
+                let data = {req,result};
+                res.render('user/index',data);
+            });
+        };
+    };
 /*
 ╔═╗─┐ ┬┌─┐┌─┐┬─┐┌┬┐
 ║╣ ┌┴┬┘├─┘│ │├┬┘ │
@@ -64,6 +75,7 @@ module.exports = (db) => {
         login: loginControllerCallback,
         verify: verifyControllerCallback,
         logout: logoutControllerCallback,
-        home
+        home,
+        index
     };
 };

@@ -57,6 +57,8 @@ module.exports = (app, allModels) => {
     app.get('/logout',userControl.logout);
 // home
     app.get('/',userControl.home);
+// show all users
+    app.get('/users',userControl.index);
 /*
 ╔╗╔┌─┐┌┬┐┌─┐┌─┐
 ║║║│ │ │ ├┤ └─┐

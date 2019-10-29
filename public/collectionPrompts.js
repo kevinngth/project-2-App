@@ -1,8 +1,12 @@
-const feedback = () => {
-    $('.toast').toast('show');
+const unlockNotes = () => {
+    document.querySelector('#notes').disabled = !document.querySelector('#notes').disabled;
 };
 
-// add click event listener to notes submit button
-document.querySelector('#noteFormSubmit').addEventListener('submit', feedback);
-// add click event listener to notes submit button
-document.querySelector('#collectionFormSubmit').addEventListener('submit', feedback);
+const unlockCollection = () => {
+    document.querySelector('#db').disabled = !document.querySelector('#db').disabled;
+    document.querySelector('#balance').disabled = !document.querySelector('#balance').disabled;
+};
+
+document.querySelector('#notesEditButton').addEventListener('click',unlockNotes);
+
+document.querySelector('#collectionEditButton').addEventListener('click',unlockCollection);
