@@ -55,6 +55,7 @@ module.exports = (pool) => {
     };
 
     let update = (req,cloudUrl,callback) => {
+        console.log('im at controllers/user.js line 100, this is cloudUrl:',cloudUrl);
         let values = [cloudUrl,req.params.id];
         let query = 'UPDATE users SET url=$1 WHERE id=$2 RETURNING *';
         pool.query(query,values,(err,res)=>{

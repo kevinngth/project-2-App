@@ -1,9 +1,9 @@
 const cloudinary = require('cloudinary');
-
+console.log('im at controllers/user.js line 2',process.env.CLOUDINARY_URL);
 if (process.env.CLOUDINARY_URL) {
     var configForCloudinary = process.env.CLOUDINARY_URL;
 } else {
-    configForCloudinary = require("../config.json");
+    var configForCloudinary = require("../config.json");
 };
 cloudinary.config(configForCloudinary);
 
@@ -93,8 +93,11 @@ module.exports = (db) => {
         if (req.cookies.loggedIn !== 'yes') {
             res.redirect('/login');
         } else {
+            console.log('im at controllers/user.js line 96, this is req.file.path:',req.file.path);
             cloudinary.uploader.upload(req.file.path,result=>{
+                console.log('im at controllers/user.js line 98, this is result.url:',result.url);
                 db.user.update(req,result.url,(err,result2)=>{
+                    console.log('im at controllers/user.js line 100, this is req.headers.referer:',req.headers.referer);
                     res.redirect(req.headers.referer);
                 });
             });

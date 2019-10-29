@@ -9,7 +9,6 @@ module.exports = (db) => {
     };
 
     let createControllerCallback = (req,res) => {
-        console.log(req)
         db.liquor.create(req,(err,result)=>{
             res.send(result);
         });
@@ -31,7 +30,6 @@ module.exports = (db) => {
     let showControllerCallback = (req,res) => {
         db.liquor.show(req,(err,result)=>{
             let data = {req,result};
-            console.log(result);
             res.render('liquor/show',data);
         });
     };
