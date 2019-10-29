@@ -93,7 +93,7 @@ module.exports = (db) => {
         if (req.cookies.loggedIn !== 'yes') {
             res.redirect('/login');
         } else {
-console.log('im at controllers/user.js line 96, this is process.env.CLOUDINARY_URL:',process.env.CLOUDINARY_URL);
+console.log('im at controllers/user.js line 96, this is configForCloudinary:',configForCloudinary);
             console.log('im at controllers/user.js line 97, this is req.file.path:',req.file.path);
             cloudinary.uploader.upload(req.file.path,result=>{
                 console.log('im at controllers/user.js line 98, this is result.url:',result.url);
