@@ -84,7 +84,10 @@ module.exports = (db) => {
                     res.render('user/edit',data);
                 });
             } else {
-                res.send('error');
+                db.user.show(req,(err,result)=>{
+                    let data = {req,result};
+                    res.render('user/show',data);
+                });
             };
         };
     };

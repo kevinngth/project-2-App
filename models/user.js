@@ -72,7 +72,7 @@ module.exports = (pool) => {
     };
 
     let show = (req,callback) => {
-        let values = [req.cookies.userId];
+        let values = [req.params.id];
         let query = 'SELECT * FROM users WHERE id=$1';
         pool.query(query,values,(err,res)=>{
             if (err) {
