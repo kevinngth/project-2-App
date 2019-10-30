@@ -33,6 +33,7 @@
 		"react-dom": "^16.10.2",
 		"url": "^0.11.0"
 ### Unsolved Problems
+Setting clear user interface to direct users attention especially on forms and buttons. Achieving balance between subtle button and clear path for users
 	Social feature for users to be developed at a later date
 ### Wireframes
 ![Login page](https://github.com/kevinngth/project-2-App/blob/master/drafts/wireframes/Log_In.png)
@@ -47,3 +48,4 @@
 ![ERD Draft 3](https://github.com/kevinngth/project-2-App/blob/master/drafts/erdDraft3.png)
 ![Site Map](https://github.com/kevinngth/project-2-App/blob/master/drafts/jyggrSiteMap.jpeg)
 ### User Stories
+As a collector, I need information on my collection as well as other trends in the market so that I can make an informed choice when buying to add to my collection or as a gift
