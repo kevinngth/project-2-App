@@ -49,6 +49,12 @@ class Index extends React.Component {
                 <Navbar>{this.props.req.cookies.username}</Navbar>
                 <div className="container">
                     <div className="row mt-5">
+                        <div className="col-md-4 mt-5 pl-5">
+                            <a href="/collection/new" className="btn btn-light m-2"><i className="fas fa-wine-bottle"></i><i className="fas fa-plus"></i></a>
+                        </div>
+                    </div>
+                    {table}
+                    <div className="row mt-5">
                         <div className="col-md-4 my-5 pl-5">
                             <img id="cocktailImg" className="img-fluid rounded"/>
                         </div>
@@ -61,11 +67,7 @@ class Index extends React.Component {
                                 <p id="cocktailInstructions"></p>
                             </div>
                         </div>
-                        <div className="col-md-4 mt-5 d-flex justify-content-end align-items-end">
-                            <a href="/collection/new" className="btn btn-light m-2"><i className="fas fa-wine-bottle"></i><i className="fas fa-plus"></i></a>
-                        </div>
                     </div>
-                {table}
                 </div>
                 <script src="../randomCocktail.js"/>
             </Layout>

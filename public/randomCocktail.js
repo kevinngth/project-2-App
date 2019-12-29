@@ -3,9 +3,7 @@ xhr.withCredentials = false;
 
 xhr.addEventListener("readystatechange", function () {
     if (this.readyState === this.DONE) {
-        console.log(this.responseText);
         let {strDrink,strGlass,strInstructions,strDrinkThumb,strIngredient1,strMeasure1,strIngredient2,strMeasure2,strIngredient3,strMeasure3,strIngredient4,strMeasure4} = JSON.parse(this.responseText).drinks[0];
-        console.log(strDrink,strGlass,strInstructions,strDrinkThumb,strIngredient1,strMeasure1,strIngredient2,strMeasure2,strIngredient3,strMeasure3,strIngredient4,strMeasure4);
         document.querySelector('#cocktailImg').src = strDrinkThumb;
         document.querySelector('#cocktailInstructions').innerHTML = strInstructions;
         document.querySelector('#cocktailTitle').innerHTML = strDrink;

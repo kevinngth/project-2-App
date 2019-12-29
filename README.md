@@ -8,6 +8,8 @@
 	React
 	Postgres
 	Bootstrap 4
+	Cloudinary API
+	Random cocktail API
 ### Approach
 	Started with the ERD and Wireframing
 	Set up one complete circuit using MVC Framework
@@ -32,8 +34,10 @@
 		"react": "^16.10.2",
 		"react-dom": "^16.10.2",
 		"url": "^0.11.0"
+	Set up Postgres database
 ### Unsolved Problems
-Setting clear user interface to direct users attention especially on forms and buttons. Achieving balance between subtle button and clear path for users
+	Setting clear user interface to direct users' attention, especially on forms and buttons.
+	Achieving balance between subtlety and clear path.
 	Social feature for users to be developed at a later date
 ### Wireframes
 ![Login page](https://github.com/kevinngth/project-2-App/blob/master/drafts/wireframes/Log_In.png)
@@ -48,4 +52,5 @@ Setting clear user interface to direct users attention especially on forms and b
 ![ERD Draft 3](https://github.com/kevinngth/project-2-App/blob/master/drafts/erdDraft3.png)
 ![Site Map](https://github.com/kevinngth/project-2-App/blob/master/drafts/jyggrSiteMap.jpeg)
 ### User Stories
-As a collector, I need information on my collection as well as other trends in the market so that I can make an informed choice when buying to add to my collection or as a gift
+	As a collector, I need information on my collection as well as other trends in the market so that I can make an informed choice when buying to add to my collection or as a gift.
+	I also want to take notes of the ones that I like and the ones that I don't so that I can avoid buyer's remorse. 
