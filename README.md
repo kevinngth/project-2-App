@@ -1,6 +1,10 @@
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Project #2: Building Your First Full-Stack Application
 ## Jyggr
-	Alcohol is a social lubricant. My love for learning about alcohol led me to develop this project. Named the project jyggr, inspired by the bartending tool used to measure liquor, a jigger. jyggr is an app that keeps track of the liquor you have and your impression of it. No actual connoisseur experience needed.
+	Alcohol is a social lubricant. 
+	My love for learning about alcohol led me to develop this project. 
+	Named the project jyggr, inspired by the bartending tool used to measure liquor, a jigger. 
+	jyggr is an app that keeps track of the liquor you have and your impression of it. 
+	No actual connoisseur experience needed.
 ### Technologies Used
 	Javascript
 	NodeJS
